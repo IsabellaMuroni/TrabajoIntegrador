@@ -1,43 +1,28 @@
 import React, { useState } from 'react';
 import TaskItem from '../TaskItem/TaskItem';
 
-const TaskForm = (props) => {
-    //recibo el metodo handleAddItem, para mandar el nuevo registro enviar id, done, item
-    const {handleAddItem} = props;
-
-    const [item, setItem] = useState('');
-    
-    const handleChange = (event) => {
-        setItem(event.target.value);
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        //console.log(item);
-
-        handleAddItem({
-            done: false,
-            id: (+new Date()).toString(),
-            item
-        });
-    };
+const TaskForm = () => {
     return (
         <>
-            <div>
-                <form onSubmit={handleSubmit} className="row g-3 bg-light-subtle rounded border border-secondary" >
-                    <div className="col-md-6">
-                        <label htmlFor="nombre" className="form-label" >Tarea</label>
-                        <input type="text" value = {item} onChange={handleChange} className="form-control" />
-                    </div>
+            <section className='container-fluid bg-light-subtle rounded border border-secondary'>
+                <main className='row'>
+                    <h3>Nueva Tarea</h3>
+                    <form className='row' >
                     
-                    
-                    <div className="col-md-12">
-                        <button type="submit" className="btn btn-primary">Agregar</button>
-                    </div>
-                </form>
-            </div>
-            
-
+                        <div className="col-md-4">
+                            <label for="tarea" className="form-label">Tarea</label>
+                            <input type="text" className="form-control" id="tarea"/>
+                        </div>
+                        <div className="col-md-6">
+                            <label for="descripcion" className="form-label">Descripción</label>
+                            <input type="text" className="form-control" id="descripcion"/>
+                        </div>
+                        <div className="col-md-2">    
+                            <button type="submit" className='btn btn-warning' ><i class="bi bi-plus-circle-fill"></i></button>
+                        </div>
+                    </form>
+                </main>
+            </section>
         </>
     );
 }
