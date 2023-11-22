@@ -2,9 +2,7 @@ import React from 'react';
 import TaskItem from '../TaskItem/TaskItem';
 import './list.css'
 
-const TaskList = () => {
-
-
+const TaskList = ({ tareas }) => {
 
     return (
         <div className='list bg-light-subtle rounded border border-secondary '>
@@ -13,11 +11,16 @@ const TaskList = () => {
                 <p className='d-inline headerDescripcion'><strong> Descripcion</strong></p>
             </div>
 
-            <TaskItem />
-            <TaskItem />
-            <TaskItem />
-            <TaskItem />
-            <TaskItem />
+            {
+                tareas.map((tarea) =>
+                    <TaskItem
+                        key={tarea.id}
+                        id={tarea.id}
+                        texto={tarea.texto}
+                        nombre={tarea.nombre}
+                    />
+                )
+            }
 
         </div>
     );

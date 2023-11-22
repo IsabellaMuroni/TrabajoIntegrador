@@ -1,12 +1,14 @@
-import React from 'react';
-import './Item.css'
+import { useId } from 'react';
+import './Item.css';
 
-const TaskItem = () => {
+const TaskItem = ({ texto, nombre }) => {
+
+
     return (
-        <div className=" border-bottom border-warning taskT">
+        <div id={useId()} className=" border-bottom border-warning taskT">
 
-            <p className="d-inline tareaNombre"><strong>Primer tarea</strong></p>
-            <p className="d-inline">   Limpiar la casa y el patio</p>
+            <p className="d-inline tareaNombre"><strong>{nombre}</strong></p>
+            <p className="d-inline">{texto}</p>
 
             <button className="float-end d-inline border-0 btn">✔️</button>
             <button className="float-end d-inline border-0 btn">❌</button>
