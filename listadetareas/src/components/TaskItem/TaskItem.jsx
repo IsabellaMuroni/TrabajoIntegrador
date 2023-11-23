@@ -1,16 +1,16 @@
 import { useId } from 'react';
 import './Item.css';
 
-const TaskItem = ({ id, texto, nombre, completada }) => {
+const TaskItem = ({ id, texto, nombre, completada, completarTarea }) => {
 
 
     return (
-        <div id={useId()} className=" border-bottom border-warning taskT">
+        <div id={id} className=" border-bottom border-warning taskT">
 
-            <p className="d-inline tareaNombre"><strong>{nombre}</strong></p>
-            <p className="d-inline">{texto}</p>
+            <p className={completada? 'd-inline tareaNombre text-muted text-decoration-line-through' :'d-inline tareaNombre'}><strong>{nombre}</strong></p>
+            <p className={completada? 'd-inline text-muted text-decoration-line-through' :'d-inline'}>{texto}</p>
 
-            <button className="float-end d-inline border-0 btn">✔️</button>
+            <button className="float-end d-inline border-0 btn" onClick={() => completarTarea(id)}>✔️</button>
             <button className="float-end d-inline border-0 btn">❌</button>
 
         </div>

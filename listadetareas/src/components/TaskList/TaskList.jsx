@@ -2,7 +2,7 @@ import React from 'react';
 import TaskItem from '../TaskItem/TaskItem';
 import './list.css'
 
-const TaskList = ({ tareas }) => {
+const TaskList = ({ tareas, completarTarea }) => {
 
     return (
         <div className='list bg-light-subtle rounded border border-secondary '>
@@ -12,13 +12,14 @@ const TaskList = ({ tareas }) => {
             </div>
 
             {
-                tareas.map((tarea) =>
+                tareas.map((tarea, index) =>
                     <TaskItem
-                        key={tarea.id}
-                        id={tarea.id}
+                        key={index}
+                        id={index}
                         texto={tarea.texto}
                         nombre={tarea.nombre}
-                        //completada={tarea.completada}
+                        completada={tarea.completada}
+                        completarTarea={completarTarea}
                     />
                 )
             }

@@ -4,13 +4,28 @@ import TaskList from '../TaskList/TaskList';
 import { useState } from 'react';
 
 const TaskContainer = () => {
-    const [tareas, setTareas] = useState([]);
+    const localTask = JSON.parse(localStorage.getItem('items'))
+    const [tareas, setTareas] = useState(localTask ? localTask : []);
 
     const agregarTarea = tarea => {
 
         const tareasActualizadas = [tarea, ...tareas];
         setTareas(tareasActualizadas);
-        console.log(tareas);
+        localStorage.setItem('items', JSON.stringify(tareasActualizadas))
+
+    };
+
+    const completarTarea = id => {
+        const task = tareas.map((tarea, index) => {
+            if (index == id) {
+                tarea.completada = !tarea.completada;
+            }
+            console.log(tarea);
+            return tarea;
+            
+        });
+
+        setTareas(task);
     };
     //función ppara eliminar tarea
     /*const eliminarTarea = (id) => {
@@ -30,7 +45,7 @@ const TaskContainer = () => {
     return (
         <div>
             <TaskForm onSubmit={agregarTarea} />
-            <TaskList tareas={tareas} />
+            <TaskList tareas={tareas} completarTarea={completarTarea}/>
         </div>
     );
 }
