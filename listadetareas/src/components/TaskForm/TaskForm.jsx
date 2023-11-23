@@ -1,9 +1,14 @@
-import React, { useId, useState } from 'react';
+import React, { useEffect, useId, useState } from 'react';
 
 
 const TaskForm = (props) => {
     //Agrego una variable de estado al componente
     const [input, setInput] = useState('');
+
+    useEffect ( () => {
+        document.title =  `Nueva tarea: ${input} `;
+        alert(`Nueva tarea: ${input}`)
+    });
 
     const handleChange = (event) => {
         setInput(event.target.value);
