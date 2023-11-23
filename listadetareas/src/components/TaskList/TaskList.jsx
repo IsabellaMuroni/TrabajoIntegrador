@@ -2,7 +2,7 @@ import React from 'react';
 import TaskItem from '../TaskItem/TaskItem';
 import './list.css'
 
-const TaskList = ({ tareas, completarTarea }) => {
+const TaskList = ({ tareas, completarTarea, eliminarElemento }) => {
 
     return (
         <div className='list bg-light-subtle rounded border border-secondary '>
@@ -20,6 +20,7 @@ const TaskList = ({ tareas, completarTarea }) => {
                         nombre={tarea.nombre}
                         completada={tarea.completada}
                         completarTarea={completarTarea}
+                        eliminarElemento={eliminarElemento}
                     />
                 )
             }

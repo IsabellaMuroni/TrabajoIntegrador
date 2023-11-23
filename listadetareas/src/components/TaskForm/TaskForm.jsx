@@ -15,7 +15,7 @@ const TaskForm = (props) => {
         let tareaDescripcion = document.getElementById("descripcion").value;
 
         const newTask = {
-            //id: useId(),// genera IDs unicas
+            // id: useId(),// genera IDs unicas
             texto: tareaDescripcion,
             nombre: tareaNombre,
             completada: false
@@ -32,16 +32,16 @@ const TaskForm = (props) => {
                     <form className='row align-items-center' onSubmit={manejarEnvio}>
 
                         <div className="col-4">
-                            <label class="visually-hidden" for="tarea">Tarea</label>
-                            <input type="text" onChange = {handleChange} className="form-control" id="tarea" placeholder='Tarea' />
+                            <label className="visually-hidden" for="tarea">Tarea</label>
+                            <input type="text" onChange={handleChange} className="form-control" id="tarea" placeholder='Tarea' />
                         </div>
 
                         <div className="col-md-6">
-                            <label class="visually-hidden" for="descripcion">Descripción</label>
+                            <label className="visually-hidden" for="descripcion">Descripción</label>
                             <input type="text" className="form-control" id="descripcion" placeholder='Descripción' />
                         </div>
                         <div className="col-md-2">
-                            <button type="submit" className='btn btn-warning' ><i class="bi bi-plus-circle-fill"></i></button>
+                            <button type="submit" className='btn btn-warning' ><i className="bi bi-plus-circle-fill"></i></button>
                         </div>
                     </form>
                 </main>
