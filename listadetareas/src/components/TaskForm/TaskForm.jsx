@@ -7,7 +7,7 @@ const TaskForm = (props) => {
 
     useEffect ( () => {
         document.title =  `Nueva tarea: ${input} `;
-        alert(`Nueva tarea: ${input}`)
+        //alert(`Nueva tarea: ${input}`)
     });
 
     const handleChange = (event) => {
