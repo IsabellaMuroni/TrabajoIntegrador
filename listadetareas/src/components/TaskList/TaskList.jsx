@@ -18,6 +18,7 @@ const TaskList = ({ tareas }) => {
                         id={tarea.id}
                         texto={tarea.texto}
                         nombre={tarea.nombre}
+                        //completada={tarea.completada}
                     />
                 )
             }

@@ -12,6 +12,21 @@ const TaskContainer = () => {
         setTareas(tareasActualizadas);
         console.log(tareas);
     };
+    //función ppara eliminar tarea
+    /*const eliminarTarea = (id) => {
+        const tareasActualizadas = tareas.filter(tarea => tarea.id != id);
+        setTareas(tareasActualizadas);
+    };
+
+    const completarTarea = (id) => {
+        const tareasActualizadas = tareas.map(tarea => {
+            if (tarea.id == id){
+                tarea.completada = !tarea.completada;
+            }
+            return tarea;
+        });
+        setTareas(tareasActualizadas);
+    }*/
     return (
         <div>
             <TaskForm onSubmit={agregarTarea} />

@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useId, useState } from 'react';
 
 
 const TaskForm = (props) => {
+    //Agrego una variable de estado al componente
+    const [input, setInput] = useState('');
 
+    const handleChange = (event) => {
+        setInput(event.target.value);
+    }
 
     const manejarEnvio = e => {
         e.preventDefault();
@@ -10,8 +15,10 @@ const TaskForm = (props) => {
         let tareaDescripcion = document.getElementById("descripcion").value;
 
         const newTask = {
+            //id: useId(),// genera IDs unicas
             texto: tareaDescripcion,
-            nombre: tareaNombre
+            nombre: tareaNombre,
+            completada: false
         }
 
         props.onSubmit(newTask);
@@ -26,7 +33,7 @@ const TaskForm = (props) => {
 
                         <div className="col-4">
                             <label class="visually-hidden" for="tarea">Tarea</label>
-                            <input type="text" className="form-control" id="tarea" placeholder='Tarea' />
+                            <input type="text" onChange = {handleChange} className="form-control" id="tarea" placeholder='Tarea' />
                         </div>
 
                         <div className="col-md-6">

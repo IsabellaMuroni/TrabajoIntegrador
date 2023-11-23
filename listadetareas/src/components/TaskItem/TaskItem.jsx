@@ -1,7 +1,7 @@
 import { useId } from 'react';
 import './Item.css';
 
-const TaskItem = ({ texto, nombre }) => {
+const TaskItem = ({ id, texto, nombre, completada }) => {
 
 
     return (
