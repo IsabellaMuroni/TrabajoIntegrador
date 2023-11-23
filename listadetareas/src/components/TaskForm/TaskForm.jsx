@@ -1,26 +1,28 @@
-import React, { useEffect, useId, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 const TaskForm = (props) => {
-    //Agrego una variable de estado al componente
-    const [input, setInput] = useState('');
 
-    useEffect ( () => {
-        document.title =  `Nueva tarea: ${input} `;
-        //alert(`Nueva tarea: ${input}`)
-    });
+    const [tareaNombre, setTareaNombre] = useState('');
+    const [tareaDescripcion, setTareaDescripcion] = useState('');
 
     const handleChange = (event) => {
-        setInput(event.target.value);
+        if(event.target.id=='descripcion'){
+            setTareaDescripcion(event.target.value);
+        }else{
+            setTareaNombre(event.target.value);
+        }
     }
+
+    useEffect ( () => {
+        document.title =  `Nueva tarea: ${tareaNombre} `;
+       
+    });
 
     const manejarEnvio = e => {
         e.preventDefault();
-        let tareaNombre = document.getElementById("tarea").value;
-        let tareaDescripcion = document.getElementById("descripcion").value;
 
         const newTask = {
-            // id: useId(),// genera IDs unicas
             texto: tareaDescripcion,
             nombre: tareaNombre,
             completada: false
@@ -38,12 +40,12 @@ const TaskForm = (props) => {
 
                         <div className="col-4">
                             <label className="visually-hidden" for="tarea">Tarea</label>
-                            <input type="text" onChange={handleChange} className="form-control" id="tarea" placeholder='Tarea' />
+                            <input type="text" onChange={handleChange} className="form-control" id="tarea" placeholder='Tarea' required/>
                         </div>
 
                         <div className="col-md-6">
                             <label className="visually-hidden" for="descripcion">Descripción</label>
-                            <input type="text" className="form-control" id="descripcion" placeholder='Descripción' />
+                            <input type="text" onChange={handleChange} className="form-control" id="descripcion" placeholder='Descripción' required/>
                         </div>
                         <div className="col-md-2">
                             <button type="submit" className='btn btn-warning' ><i className="bi bi-plus-circle-fill"></i></button>
