@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import TaskForm from '../TaskForm/TaskForm';
 import TaskList from '../TaskList/TaskList';
 import { useState } from 'react';
@@ -7,12 +7,15 @@ import { useState } from 'react';
 const TaskContainer = () => {
     const localTask = JSON.parse(localStorage.getItem('items'))
     const [tareas, setTareas] = useState(localTask ? localTask : []);
+useEffect(() => {
+    localStorage.setItem('items', JSON.stringify(tareas))
+}, [tareas])
 
     const agregarTarea = tarea => {
 
         const tareasActualizadas = [tarea, ...tareas];
         setTareas(tareasActualizadas);
-        localStorage.setItem('items', JSON.stringify(tareasActualizadas))
+        
 
     };
 
@@ -31,7 +34,9 @@ const TaskContainer = () => {
     function eliminarElemento(index) {
         const nuevaLista = [...tareas]
         nuevaLista.splice(index, 1)
+        //agregarTarea()
         setTareas(nuevaLista)
+
     }
 
 
