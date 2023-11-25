@@ -24,7 +24,6 @@ const TaskContainer = () => {
             if (index == id) {
                 tarea.completada = !tarea.completada;
             }
-            console.log(tarea);
             return tarea;
         });
 

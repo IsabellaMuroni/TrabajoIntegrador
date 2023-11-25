@@ -39,12 +39,12 @@ const TaskForm = (props) => {
                     <form className='row align-items-center' onSubmit={manejarEnvio}>
 
                         <div className="col-4">
-                            <label className="visually-hidden" for="tarea">Tarea</label>
+                            <label className="visually-hidden" htmlFor="tarea">Tarea</label>
                             <input type="text" onChange={handleChange} className="form-control" id="tarea" placeholder='Tarea' required/>
                         </div>
 
                         <div className="col-md-6">
-                            <label className="visually-hidden" for="descripcion">Descripción</label>
+                            <label className="visually-hidden" htmlFor="descripcion">Descripción</label>
                             <input type="text" onChange={handleChange} className="form-control" id="descripcion" placeholder='Descripción' required/>
                         </div>
                         <div className="col-md-2">
