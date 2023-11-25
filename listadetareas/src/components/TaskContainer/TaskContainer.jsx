@@ -7,16 +7,16 @@ import { useState } from 'react';
 const TaskContainer = () => {
     const localTask = JSON.parse(localStorage.getItem('items'))
     const [tareas, setTareas] = useState(localTask ? localTask : []);
-useEffect(() => {
-    localStorage.setItem('items', JSON.stringify(tareas))
-}, [tareas])
+
+
+    useEffect(() => {
+        localStorage.setItem('items', JSON.stringify(tareas))
+    }, [tareas])
 
     const agregarTarea = tarea => {
 
         const tareasActualizadas = [tarea, ...tareas];
         setTareas(tareasActualizadas);
-        
-
     };
 
     const completarTarea = id => {
@@ -40,7 +40,7 @@ useEffect(() => {
     }
 
 
-    
+
     return (
         <div>
             <TaskForm onSubmit={agregarTarea} />
